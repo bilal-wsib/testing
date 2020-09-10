@@ -20,23 +20,8 @@ const MakeList = (props) => {
 
 export const Item = props => {
 
-    //let items = props.items;
+    let items = props.items;
 
-    //temporary array of object items untill we connect everything
-    let tempItems = [
-        {
-            id: 1, 
-            content: "first item"
-        }, 
-        {
-            id: 2, 
-            content: "second item"
-        }, 
-        {
-            id: 3, 
-            content: "third item"
-        }, 
-    ]
 
     //temp edit function
     function onEditClick(){
@@ -48,10 +33,11 @@ export const Item = props => {
         console.log("deleting");
     }
 
+
     return(
         <div>
             <MakeList 
-                items={tempItems} 
+                items={items} 
                 editItem={onEditClick}
                 deleteItem={onDeleteClick}
             />
