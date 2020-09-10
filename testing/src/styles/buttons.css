@@ -1,0 +1,13 @@
+.button-box {
+    border-style: solid;
+    border-width: medium;
+    border-radius: 7px;
+    padding: 1%;
+    cursor: pointer;
+    color: black;
+    border-color: black;
+}
+
+.button-box:hover {
+    text-decoration: underline;
+}
