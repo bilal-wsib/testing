@@ -1,60 +1,56 @@
 /*
-* Created by: :component
-* Date: 2020-09-10 12:00:23
-*/
+ * Created by: :component
+ * Date: 2020-09-10 12:00:23
+ */
 
 import React from "react";
 
 const MakeList = (props) => {
+  return props.items.map((items) => (
+    <div key={items.id} className="items">
+      <p className="itemContent">{items.content}</p>
+      <button onClick={() => props.editItem()}>Edit</button>
+      <button onClick={() => props.deleteItem()}>Delete</button>
+    </div>
+  ));
+};
 
-    return props.items.map(items => 
-        <div key={items.id} className="items">
-            <p className="itemContent">
-                {items.content}
-            </p>
-            <button onClick={() => props.editItem()}>Edit</button>
-            <button onClick={() => props.deleteItem()}>Delete</button>
-        </div>
-    )
-}
+export const Item = () => {
+  //let items = props.items;
 
-export const Item = props => {
+  //temporary array of object items untill we connect everything
+  let tempItems = [
+    {
+      id: 1,
+      content: "first item",
+    },
+    {
+      id: 2,
+      content: "second item",
+    },
+    {
+      id: 3,
+      content: "third item",
+    },
+  ];
 
-    //let items = props.items;
+  //temp edit function
+  function onEditClick() {
+    console.log("editting");
+  }
 
-    //temporary array of object items untill we connect everything
-    let tempItems = [
-        {
-            id: 1, 
-            content: "first item"
-        }, 
-        {
-            id: 2, 
-            content: "second item"
-        }, 
-        {
-            id: 3, 
-            content: "third item"
-        }, 
-    ]
+  //temp delete function
+  function onDeleteClick() {
+    console.log("deleting");
+  }
 
-    //temp edit function
-    function onEditClick(){
-        console.log("editting");
-    }
-
-    //temp delete function
-    function onDeleteClick(){
-        console.log("deleting");
-    }
-
-    return(
-        <div>
-            <MakeList 
-                items={tempItems} 
-                editItem={onEditClick}
-                deleteItem={onDeleteClick}
-            />
-        </div>
-    );
+  return (
+    <div>
+      <MakeList
+        items={tempItems}
+        editItem={onEditClick}
+        deleteItem={onDeleteClick}
+      />
+    </div>
+  );
 };
