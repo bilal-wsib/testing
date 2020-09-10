@@ -7,6 +7,31 @@
   pointer-events: none;
 }
 
+.app-container {
+  margin-left: 12vmin;
+  margin-right: 12vmin;
+  margin-top: 12vmin;
+}
+
+.app-title {
+  padding-bottom: 8vmin;
+  font-weight: 600;
+}
+
+.add-item-container {
+  padding-bottom: 4vmin;
+}
+
+.form {
+  background-color: #cccccc;
+  padding: 4vmin;
+  border-radius: 2vmin;
+}
+
+.input-title {
+  padding-bottom: 4vmin;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
