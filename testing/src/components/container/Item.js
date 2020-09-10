@@ -9,7 +9,7 @@ const MakeList = (props) => {
 
     return props.items.map(items => 
         <div key={items.id} className="items">
-            <p className="itemContent">
+            <p className="item-content">
                 {items.content}
             </p>
             <button onClick={() => props.editItem()}>Edit</button>
