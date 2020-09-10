@@ -4,10 +4,10 @@
 */
 
 import React from "react";
-import {Buttons, Input, Item} from './container/index';
+import { Buttons, Input, Item } from './container/index';
 
 export const Container = () => {
 
- return <div>NewFile</div>;
+  return <div>NewFile</div>;
 
 };
