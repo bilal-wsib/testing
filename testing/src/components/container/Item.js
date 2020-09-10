@@ -8,14 +8,8 @@ import React from "react";
 const MakeList = (props) => {
 
     return props.items.map(items => 
-        <div key={items.id} style={{
-            border:"solid 1px black",
-            margin:"10px", 
-            padding:"10px"
-        }}>
-            <p style={{
-                width:"100%"
-            }}>
+        <div key={items.id} className="items">
+            <p className="itemContent">
                 {items.content}
             </p>
             <button onClick={() => props.editItem()}>Edit</button>
@@ -24,7 +18,7 @@ const MakeList = (props) => {
     )
 }
 
-export const Item = ({ props }) => {
+export const Item = props => {
 
     //let items = props.items;
 
