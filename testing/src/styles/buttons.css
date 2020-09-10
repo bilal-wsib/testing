@@ -1,0 +1,16 @@
+.button-box {
+    border-style: solid;
+    border-width: medium;
+    border-radius: 7px;
+    padding: 1%;
+    cursor: pointer;
+    color: black;
+    border-color: black;
+    width: 10%;
+    text-align: center;
+    display: inline-block;
+}
+
+.button-box:hover {
+    text-decoration: underline;
+}

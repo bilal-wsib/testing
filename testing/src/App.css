@@ -45,6 +45,16 @@
   }
 }
 
+.items{
+  border:"solid 1px black";
+  margin:"10px";
+  padding:"10px";
+}
+
+.itemContent{
+  width:100%;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
