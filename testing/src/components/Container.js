@@ -11,9 +11,11 @@ export const Container = () => {
     <div className="app-container">
       <div className="app-title">the TODO LIST</div>
       <div className="form">
-        <div className="input-title">Add a Todo Item</div>
-        <div>
-          <input />
+        <div className="add-item-container">
+          <div className="input-title">Add a Todo Item</div>
+          <div>
+            <Input />
+          </div>
         </div>
       </div>
     </div>
