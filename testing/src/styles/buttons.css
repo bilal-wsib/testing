@@ -6,6 +6,9 @@
     cursor: pointer;
     color: black;
     border-color: black;
+    width: 10%;
+    text-align: center;
+    display: inline-block;
 }
 
 .button-box:hover {
