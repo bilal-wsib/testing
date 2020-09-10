@@ -3,10 +3,16 @@
  * Date: 2020-09-10 11:59:40
  */
 
-import React from "react";
+import React, { useState, useReducer } from "react";
 import { Buttons, Input, Item } from "./container/index";
 
 export const Container = () => {
+  const [items, setItems] = useState(
+    // localStorage.getItem("itemList")
+    //   ? JSON.parse(localStorage.getItem("itemList"))
+    //   :
+    []
+  );
   return (
     <div className="app-container">
       <div className="app-title">the TODO LIST</div>
