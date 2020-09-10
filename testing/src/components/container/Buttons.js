@@ -14,7 +14,7 @@ export const Buttons = (props) => {
             color: props.bColor,
             fontSize: props.bFontSize,
             font: props.bFont,
-            borderWidth: props.bBorderWidth
+            borderWidth: props.bBorderWidth,
         }}>
         {text}
     </div>

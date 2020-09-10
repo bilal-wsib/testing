@@ -5,10 +5,7 @@
 
 import React from "react";
 
-import { Buttons } from './Buttons';
-
 const MakeList = (props) => {
-    console.log(props.items);
 
     return props.items.map(items => 
         <div key={items.id} style={{
@@ -31,6 +28,7 @@ export const Item = ({ props }) => {
 
     //let items = props.items;
 
+    //temporary array of object items untill we connect everything
     let tempItems = [
         {
             id: 1, 
@@ -46,18 +44,23 @@ export const Item = ({ props }) => {
         }, 
     ]
 
+    //temp edit function
     function onEditClick(){
         console.log("editting");
     }
 
+    //temp delete function
     function onDeleteClick(){
         console.log("deleting");
     }
 
     return(
         <div>
-            <MakeList items={tempItems} editItem={onEditClick}
-            deleteItem={onDeleteClick}/>
+            <MakeList 
+                items={tempItems} 
+                editItem={onEditClick}
+                deleteItem={onDeleteClick}
+            />
         </div>
     );
 };
