@@ -32,27 +32,10 @@
   padding-bottom: 4vmin;
 }
 
-.input-style {
-  padding: 4vmin;
-  border: none;
-  border-radius: 2vmin;
-  outline: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.items{
-  border:"solid 1px black";
-  margin:"10px";
-  padding:"10px";
-}
-
-.item-content{
-  width:100%;
 }
 
 .App-header {
