@@ -13,10 +13,7 @@ export const Container = () => {
     // localStorage.getItem("itemList")
     //   ? JSON.parse(localStorage.getItem("itemList"))
     //   : //TODO: add storage option
-    [
-      { title: "hello", edit: false },
-      { title: "test", edit: false },
-    ]
+    []
   );
 
   const removeItem = (index) => {
@@ -52,6 +49,15 @@ export const Container = () => {
   const updateVal = (e) => {
     temp = e.target.value;
   };
+  const [itemsToDo, changeitemsToDo] = useState(["hello", "text", "another"]);
+  //new todo title temp holder
+  const [todoName, setTodoName] = useState("");
+
+  //function sets the new value of title to the lastest array value
+  function handleClick() {
+    setItems([...items, { title: todoName, edit: false }]);
+    setTodoName("");
+  }
 
   return (
     <div className="app-container">
@@ -59,7 +65,10 @@ export const Container = () => {
       <div className="form">
         <div className="input-title">Add a Todo Item</div>
         <div>
-          <Input />
+          <Input setTodoName={setTodoName} todoName={todoName} />
+          <button className="Add-Item-Button" onClick={handleClick}>
+            Add item
+          </button>
 
           {items.map((item, index) => {
             return item.edit ? (
