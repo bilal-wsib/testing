@@ -3,24 +3,29 @@
  * Date: 2020-09-10 11:59:40
  */
 
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import { Buttons, Input, ItemEdit, ItemDisplay } from "./container/index";
 
 export const Container = () => {
   let temp;
 
   const [items, setItems] = useState(
-    // localStorage.getItem("itemList")
-    //   ? JSON.parse(localStorage.getItem("itemList"))
-    //   : //TODO: add storage option
-    []
+    localStorage.getItem("items")
+      ? JSON.parse(localStorage.getItem("items"))
+      : []
   );
+
+  useEffect(() => {
+    console.log(items);
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
 
   const removeItem = (index) => {
     let tempList = items.slice();
     tempList.splice(index, 1);
     //console.log(tempList);
     setItems(tempList);
+    localStorage.setItem("items", JSON.stringify(items));
   };
 
   const editItem = (index) => {
@@ -44,18 +49,19 @@ export const Container = () => {
     tempList[index].edit = false;
     //console.log(tempList);
     setItems(tempList);
+    localStorage.setItem("items", JSON.stringify(items));
   };
 
   const updateVal = (e) => {
     temp = e.target.value;
   };
-  const [itemsToDo, changeitemsToDo] = useState(["hello", "text", "another"]);
   //new todo title temp holder
   const [todoName, setTodoName] = useState("");
 
   //function sets the new value of title to the lastest array value
   function handleClick() {
-    setItems([...items, { title: todoName, edit: false }]);
+    if (todoName.trim()) setItems([...items, { title: todoName, edit: false }]);
+    else alert("Please input a TODO before submitting");
     setTodoName("");
   }
 
