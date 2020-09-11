@@ -3,8 +3,8 @@
  * Date: 2020-09-10 11:59:40
  */
 
-import React, { useState, useReducer, useEffect } from "react";
-import { Buttons, Input, ItemEdit, ItemDisplay } from "./container/index";
+import React, { useState, useEffect } from "react";
+import { Input, ItemEdit, ItemDisplay } from "./container/index";
 
 export const Container = () => {
 
@@ -16,7 +16,7 @@ export const Container = () => {
 
 
   useEffect(() => {
-    console.log(items);
+    // console.log(items);
     localStorage.setItem("items", JSON.stringify(items));
   }, [items]);
 
@@ -96,6 +96,7 @@ export const Container = () => {
                 cancelEditItem={cancelEditItem}
                 item={item}
                 key={index}
+                index={index}
               />
             ) : (
               <ItemDisplay
@@ -103,6 +104,7 @@ export const Container = () => {
                 removeItem={removeItem}
                 item={item}
                 key={index}
+                index={index}
               />
             );
           })}
