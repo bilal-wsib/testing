@@ -77,14 +77,14 @@ export const Container = () => {
                 onSaveEdit={onSaveEdit}
                 cancelEditItem={cancelEditItem}
                 item={item}
-                index={index}
+                key={index}
               />
             ) : (
               <ItemDisplay
                 editItem={editItem}
                 removeItem={removeItem}
                 item={item}
-                index={index}
+                key={index}
               />
             );
           })}
