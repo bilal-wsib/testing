@@ -13,8 +13,8 @@ export const ItemEdit = (props) => {
         defaultValue={props.item.title}
         onChange={(e) => props.updateVal(e)}
       />
-      <button onClick={() => props.onSaveEdit(props.key)}>Save</button>
-      <button onClick={() => props.cancelEditItem(props.key)}>Cancel</button>
+      <button onClick={() => props.onSaveEdit(props.index)}>Save</button>
+      <button onClick={() => props.cancelEditItem(props.index)}>Cancel</button>
     </div>
   );
 };
@@ -24,13 +24,13 @@ export const ItemDisplay = (props) => {
     <div className="items">
       <p className="itemContent">{props.item.title}</p>
       <button
-        onClick={() => props.editItem(props.key)}
+        onClick={() => props.editItem(props.index)}
         style={{ display: "inline-block" }}
       >
         Edit
       </button>
       <button
-        onClick={() => props.removeItem(props.key)}
+        onClick={() => props.removeItem(props.index)}
         style={{ display: "inline-block" }}
       >
         Delete
