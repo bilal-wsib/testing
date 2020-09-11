@@ -5,32 +5,36 @@
 
 import React from "react";
 
-export const Item = (props) => {
-  //map the items to a display
-  return props.items.map((item, index) => {
-    return item.edit ? (
-      <div>
-        <br />
-        <input defaultValue={item.title} onChange={(e) => props.updateVal(e)} />
-        <button onClick={() => props.onSaveEdit(index)}>Save</button>
-        <button onClick={() => props.cancelEditItem(index)}>Cancel</button>
-      </div>
-    ) : (
-      <div className="items">
-        <p className="itemContent">{item.title}</p>
-        <button
-          onClick={() => props.editItem(index)}
-          style={{ display: "inline-block" }}
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => props.removeItem(index)}
-          style={{ display: "inline-block" }}
-        >
-          Delete
-        </button>
-      </div>
-    );
-  });
+export const ItemEdit = (props) => {
+  return (
+    <div>
+      <br />
+      <input
+        defaultValue={props.item.title}
+        onChange={(e) => props.updateVal(e)}
+      />
+      <button onClick={() => props.onSaveEdit(props.index)}>Save</button>
+      <button onClick={() => props.cancelEditItem(props.index)}>Cancel</button>
+    </div>
+  );
+};
+
+export const ItemDisplay = (props) => {
+  return (
+    <div className="items">
+      <p className="itemContent">{props.item.title}</p>
+      <button
+        onClick={() => props.editItem(props.index)}
+        style={{ display: "inline-block" }}
+      >
+        Edit
+      </button>
+      <button
+        onClick={() => props.removeItem(props.index)}
+        style={{ display: "inline-block" }}
+      >
+        Delete
+      </button>
+    </div>
+  );
 };

@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useReducer } from "react";
-import { Buttons, Input, Item, MakeList } from "./container/index";
+import { Buttons, Input, ItemEdit, ItemDisplay } from "./container/index";
 
 export const Container = () => {
   let temp;
@@ -60,14 +60,25 @@ export const Container = () => {
         <div className="input-title">Add a Todo Item</div>
         <div>
           <Input />
-          <Item
-            onSaveEdit={onSaveEdit}
-            cancelEditItem={cancelEditItem}
-            editItem={editItem}
-            updateVal={updateVal}
-            removeItem={removeItem}
-            items={items}
-          />
+
+          {items.map((item, index) => {
+            return item.edit ? (
+              <ItemEdit
+                updateVal={updateVal}
+                onSaveEdit={onSaveEdit}
+                cancelEditItem={cancelEditItem}
+                item={item}
+                index={index}
+              />
+            ) : (
+              <ItemDisplay
+                editItem={editItem}
+                removeItem={removeItem}
+                item={item}
+                index={index}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
