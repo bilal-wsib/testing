@@ -5,13 +5,12 @@
  */
 
 import React, { useState, useEffect } from "react";
-export const Input = () => {
-  const [todoName, setTodoName] = useState("");
-  useEffect(() => console.log(todoName), [todoName]);
+export const Input = (props) => {
   return (
     <input
       className="input-style"
-      onChange={(e) => setTodoName(e.target.value)}
+      value={props.todoName}
+      onChange={(e) => props.setTodoName(e.target.value)}
     />
   );
 };

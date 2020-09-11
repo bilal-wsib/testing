@@ -39,20 +39,29 @@
   outline: none;
 }
 
+.Add-Item-Button {
+  padding-top: 2vmin;
+  padding-bottom: 2vmin;
+  border-radius: 2vmin;
+  border: none;
+  outline: none;
+  margin-left: 4vmin;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.items{
-  border:"solid 1px black";
-  margin:"10px";
-  padding:"10px";
+.items {
+  border: "solid 1px black";
+  margin: "10px";
+  padding: "10px";
 }
 
-.itemContent{
-  width:100%;
+.itemContent {
+  width: 100%;
 }
 
 .App-header {
