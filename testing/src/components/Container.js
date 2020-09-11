@@ -7,7 +7,6 @@ import React, { useState, useReducer } from "react";
 import { Buttons, Input, ItemEdit, ItemDisplay } from "./container/index";
 
 export const Container = () => {
-  let temp;
 
   const [items, setItems] = useState(
     // localStorage.getItem("itemList")
@@ -16,38 +15,50 @@ export const Container = () => {
     []
   );
 
+  const [temp, setTemp] = useState([]);
+
+  const isEdit = items.filter((x,i) => { return x.edit; }).length;
+
   const removeItem = (index) => {
     let tempList = items.slice();
     tempList.splice(index, 1);
-    //console.log(tempList);
+    // console.log(tempList);
     setItems(tempList);
   };
 
   const editItem = (index) => {
     let tempList = items.slice();
+    let i = 0;
+    while (i < items.length) { 
+      tempList[i].edit = false;
+      i += 1;
+    }
     tempList[index].edit = true;
-    //console.log(tempList);
+    setTemp(tempList[index].title);
+    // console.log('temp', temp)
+    // console.log(tempList);
     setItems(tempList);
   };
 
   const cancelEditItem = (index) => {
     let tempList = items.slice();
     tempList[index].edit = false;
-    //console.log(tempList);
+    // console.log(tempList);
     setItems(tempList);
   };
 
   const onSaveEdit = (index) => {
     let tempList = items.slice();
+    // console.log('temp is', temp)
     tempList[index].title = temp;
-    temp = "";
+    setTemp("");
     tempList[index].edit = false;
-    //console.log(tempList);
+    // console.log(tempList);
     setItems(tempList);
   };
 
   const updateVal = (e) => {
-    temp = e.target.value;
+    setTemp(e.target.value);
   };
   const [itemsToDo, changeitemsToDo] = useState(["hello", "text", "another"]);
   //new todo title temp holder
@@ -71,7 +82,7 @@ export const Container = () => {
           </button>
 
           {items.map((item, index) => {
-            return item.edit ? (
+            return (item.edit && (isEdit === 1)) ? (
               <ItemEdit
                 updateVal={updateVal}
                 onSaveEdit={onSaveEdit}
